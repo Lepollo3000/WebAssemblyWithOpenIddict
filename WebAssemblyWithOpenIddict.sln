@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAssemblyWithOpenIddict.Server", "WebAssemblyWithOpenIddict\Server\WebAssemblyWithOpenIddict.Server.csproj", "{3F04916C-D4B6-49A3-A0E7-41D84708650B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAssemblyWithOpenIddict.Client", "WebAssemblyWithOpenIddict\Client\WebAssemblyWithOpenIddict.Client.csproj", "{001BFA51-2C7D-4822-8C12-2BA905A5629B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAssemblyWithOpenIddict.Shared", "WebAssemblyWithOpenIddict\Shared\WebAssemblyWithOpenIddict.Shared.csproj", "{566A43DF-78C3-42C8-85A7-4E7B1BF2E888}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F04916C-D4B6-49A3-A0E7-41D84708650B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F04916C-D4B6-49A3-A0E7-41D84708650B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F04916C-D4B6-49A3-A0E7-41D84708650B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F04916C-D4B6-49A3-A0E7-41D84708650B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{001BFA51-2C7D-4822-8C12-2BA905A5629B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001BFA51-2C7D-4822-8C12-2BA905A5629B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001BFA51-2C7D-4822-8C12-2BA905A5629B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001BFA51-2C7D-4822-8C12-2BA905A5629B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{566A43DF-78C3-42C8-85A7-4E7B1BF2E888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{566A43DF-78C3-42C8-85A7-4E7B1BF2E888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{566A43DF-78C3-42C8-85A7-4E7B1BF2E888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{566A43DF-78C3-42C8-85A7-4E7B1BF2E888}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DD4DD67-39E0-4EFF-99D0-EB069FADE0C3}
+	EndGlobalSection
+EndGlobal
