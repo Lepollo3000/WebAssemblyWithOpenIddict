@@ -3,22 +3,27 @@
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <NotAuthorized>
+                    <PageTitle>No autorizado</PageTitle>
+
                     @if (context.User.Identity?.IsAuthenticated != true)
                     {
                         <RedirectToLogin />
                     }
                     else
                     {
-                        <p role="alert">You are not authorized to access this resource.</p>
+                        <p role="alert">No se cuenta con la autorización para acceder a este recurso.</p>
                     }
                 </NotAuthorized>
             </AuthorizeRouteView>
+
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </Found>
+
         <NotFound>
-            <PageTitle>Not found</PageTitle>
+            <PageTitle>No se encontró</PageTitle>
+
             <LayoutView Layout="@typeof(MainLayout)">
-                <p role="alert">Sorry, there's nothing at this address.</p>
+                <p role="alert">Lo sentimos, no se encontró nada en esta dirección.</p>
             </LayoutView>
         </NotFound>
     </Router>

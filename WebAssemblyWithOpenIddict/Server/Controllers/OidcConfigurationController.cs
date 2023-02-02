@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+﻿/*using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAssemblyWithOpenIddict.Server.Controllers
@@ -22,4 +22,4 @@ namespace WebAssemblyWithOpenIddict.Server.Controllers
             return Ok(parameters);
         }
     }
-}
+}*/
