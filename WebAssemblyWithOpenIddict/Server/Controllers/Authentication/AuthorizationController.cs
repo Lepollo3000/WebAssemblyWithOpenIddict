@@ -2,10 +2,8 @@
 using System.Security.Claims;
 using WebAssemblyWithOpenIddict.Server.Models;
 using WebAssemblyWithOpenIddict.Server.Utills.Helpers;
-using WebAssemblyWithOpenIddict.Server.ViewModels.Authorization;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
@@ -181,17 +179,11 @@ namespace WebAssemblyWithOpenIddict.Server.Controllers.Authentication
 
                 // In every other case, render the consent form.
                 default:
-                    return View(new AuthorizeViewModel
-                    {
-                        ApplicationName = (await _applicationManager.GetLocalizedDisplayNameAsync(application))!,
-                        Scope = request.Scope!
-                    });
+                    return await Accept();
             }
         }
 
-        [Authorize, FormValueRequired("submit.Accept")]
-        [HttpPost("~/connect/authorize"), ValidateAntiForgeryToken]
-        public async Task<IActionResult> Accept()
+        private async Task<IActionResult> Accept()
         {
             var request = HttpContext.GetOpenIddictServerRequest() ??
                 throw new InvalidOperationException("The OpenID Connect request cannot be retrieved.");
@@ -268,17 +260,10 @@ namespace WebAssemblyWithOpenIddict.Server.Controllers.Authentication
             return SignIn(new ClaimsPrincipal(identity), OpenIddictServerAspNetCoreDefaults.AuthenticationScheme);
         }
 
-        [Authorize, FormValueRequired("submit.Deny")]
-        [HttpPost("~/connect/authorize"), ValidateAntiForgeryToken]
-        // Notify OpenIddict that the authorization grant has been denied by the resource owner
-        // to redirect the user agent to the client application using the appropriate response_mode.
-        public IActionResult Deny() => Forbid(OpenIddictServerAspNetCoreDefaults.AuthenticationScheme);
-
         [HttpGet("~/connect/logout")]
-        public IActionResult Logout() => View();
+        public async Task<IActionResult> LogoutAsync() => await LogoutPost();
 
-        [ActionName(nameof(Logout)), HttpPost("~/connect/logout"), ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogoutPost()
+        private async Task<IActionResult> LogoutPost()
         {
             // Ask ASP.NET Core Identity to delete the local and external cookies created
             // when the user agent is redirected from the external identity provider
