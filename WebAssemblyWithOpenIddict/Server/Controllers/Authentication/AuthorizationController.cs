@@ -16,21 +16,16 @@ namespace WebAssemblyWithOpenIddict.Server.Controllers.Authentication
 {
     public class AuthorizationController : Controller
     {
-        private readonly IOpenIddictApplicationManager _applicationManager;
         private readonly IOpenIddictAuthorizationManager _authorizationManager;
+        private readonly IOpenIddictApplicationManager _applicationManager;
         private readonly IOpenIddictScopeManager _scopeManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public AuthorizationController(
-            IOpenIddictApplicationManager applicationManager,
-            IOpenIddictAuthorizationManager authorizationManager,
-            IOpenIddictScopeManager scopeManager,
-            SignInManager<ApplicationUser> signInManager,
-            UserManager<ApplicationUser> userManager)
+        public AuthorizationController(IOpenIddictAuthorizationManager authorizationManager, IOpenIddictApplicationManager applicationManager, IOpenIddictScopeManager scopeManager, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
-            _applicationManager = applicationManager;
             _authorizationManager = authorizationManager;
+            _applicationManager = applicationManager;
             _scopeManager = scopeManager;
             _signInManager = signInManager;
             _userManager = userManager;

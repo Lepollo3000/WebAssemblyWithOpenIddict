@@ -17,7 +17,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddOidcAuthentication(options =>
 {
-    options.ProviderOptions.ClientId = "balosar-blazor-client";
+    options.ProviderOptions.ClientId = "blazor-client";
     options.ProviderOptions.Authority = "https://localhost:44310/";
     options.ProviderOptions.ResponseType = "code";
 
